@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <title>Project Management Tool</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+        <button class="navbar-hamburger d-none d-md-block mr-4 navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project Management Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <nav id="sidebar" class="col-md-3 col-lg-2 bg-light sidebar">
+                <div class="navbar-light">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Project List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Team Members
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Notifications
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Recent Activity
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Project Overview</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                Task Lists
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Task 1
+                                        <span class="badge badge-primary">In Progress</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Task 2
+                                        <span class="badge badge-success">Completed</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Task 3
+                                        <span class="badge badge-danger">Pending</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                Project Timeline
+                            </div>
+                            <div class="card-body">
+                                <ul class="timeline">
+                                    <li>
+                                        <p>Task 1 started</p>
+                                        <small class="text-muted">Jan 1, 2024</small>
+                                    </li>
+                                    <li>
+                                        <p>Task 2 completed</p>
+                                        <small class="text-muted">Jan 5, 2024</small>
+                                    </li>
+                                    <li>
+                                        <p>Task 3 in progress</p>
+                                        <small class="text-muted">Jan 10, 2024</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                Project Statistics
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <h4>Total Tasks</h4>
+                                            <p id="totalTasks">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <h4>Completed Tasks</h4>
+                                            <p id="completedTasks">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <h4>Remaining Tasks</h4>
+                                            <p id="remainingTasks">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                Task Management
+                            </div>
+                            <div class="card-body">
+
+                                <form id="addTaskForm" class="mb-3">
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="taskName">Task Name</label>
+                                            <input type="text" class="form-control" id="taskName" required>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="assignee">Assignee</label>
+                                            <input type="text" class="form-control" id="assignee" required>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label for="taskStatus">Status</label>
+                                            <select class="form-control" id="taskStatus" required>
+                                                <option value="in-progress">In Progress</option>
+                                                <option value="completed">Completed</option>
+                                                <option value="pending">Pending</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="dueDate">Due Date</label>
+                                            <input type="date" class="form-control" id="dueDate" required>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Add Task</button>
+                                </form>
+
+                                <!-- Task List -->
+                                <ul id="taskList" class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                                        data-taskid="task1" draggable="true" class="sortable-bulk">
+                                        Task 1
+                                        <span class="badge badge-primary">In Progress</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                                        data-taskid="task2" draggable="true" class="sortable-bulk">
+                                        Task 2
+                                        <span class="badge badge-success">Completed</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                                        data-taskid="task3" draggable="true" class="sortable-bulk">
+                                        Task 3
+                                        <span class="badge badge-danger">Pending</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+
+
+        </div>
+    </div>
+
+    <footer class="footer badge-light text-center">
+        <div class="container">
+            <span class="text-muted">Project Management Tool &copy; <span id="current-year"></span> - Yasir
+                Albardawil</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
